@@ -1,0 +1,25 @@
+{
+  "name": "arithmetic-generator",
+  "version": "1.0.0",
+  "description": "This project creates a NodeJS server that produces arithmetic equations and sends them to a consumer service to be solved.  The consumer service is a NodeJS server that accepts an inbound equation, solves it and returns the result.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwmccull/arithmetic-generator.git"
+  },
+  "author": "Garrett McCullough",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gwmccull/arithmetic-generator/issues"
+  },
+  "homepage": "https://github.com/gwmccull/arithmetic-generator#readme",
+  "devDependencies": {
+    "chai": "*",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.2",
+    "mocha": "*"
+  }
+}
