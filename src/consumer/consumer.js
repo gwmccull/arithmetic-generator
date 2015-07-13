@@ -7,7 +7,10 @@ var equationSolver = require('./equation-solver/equationSolver');
 var app = connect();
 
 app.use(bodyParser.json({extended: true}));
-app.use(morgan(':date[iso] :method :url :response-time ms'));
+
+morgan.token('port', function(req) { return req.body.port });
+app.use(morgan('Incoming from port: :port At: :date[iso] :method :url :response-time ms'));
+
 app.use(send.json());
 
 app.use('/api/equation', function (req, res, next) {
@@ -37,7 +40,7 @@ app.use('/api/equation', function (req, res, next) {
         return;
     }
 
-    // that method hasn't been implemented.  Try the next route
+    // the request method hasn't been implemented.  Try the next route
     next();
 });
 

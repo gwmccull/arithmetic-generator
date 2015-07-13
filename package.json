@@ -20,7 +20,9 @@
     "chai": "*",
     "chai-http": "^1.0.0",
     "gulp": "^3.9.0",
+    "gulp-exec": "^2.1.1",
     "gulp-mocha": "^2.1.2",
+    "gulp-shell": "^0.4.2",
     "mocha": "*",
     "superagent": "^1.2.0",
     "supertest": "^1.0.1"
@@ -30,6 +32,7 @@
     "connect": "^3.4.0",
     "connect-send-json": "^1.0.0",
     "morgan": "^1.6.1",
+    "performance-now": "^0.2.0",
     "request": "^2.58.0"
   }
 }
