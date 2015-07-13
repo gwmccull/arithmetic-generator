@@ -18,8 +18,17 @@
   "homepage": "https://github.com/gwmccull/arithmetic-generator#readme",
   "devDependencies": {
     "chai": "*",
+    "chai-http": "^1.0.0",
     "gulp": "^3.9.0",
     "gulp-mocha": "^2.1.2",
-    "mocha": "*"
+    "mocha": "*",
+    "superagent": "^1.2.0",
+    "supertest": "^1.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "connect": "^3.4.0",
+    "connect-send-json": "^1.0.0",
+    "morgan": "^1.6.1"
   }
 }

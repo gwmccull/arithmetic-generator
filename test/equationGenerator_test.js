@@ -34,7 +34,6 @@ describe('equationGenerator', function() {
     describe('equationGenerator', function() {
         it('should return a random equation', function() {
             var equation = equationGenerator();
-            console.log(equation);
 
             equation.should.contain('+');
             equation.should.contain('=');
