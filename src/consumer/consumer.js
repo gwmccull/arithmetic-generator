@@ -3,39 +3,42 @@ var bodyParser = require('body-parser');
 var send = require('connect-send-json');
 var morgan = require('morgan');
 var equationSolver = require('./equation-solver/equationSolver');
-//var http = require('http');
-
 
 var app = connect();
 
 app.use(bodyParser.json({extended: true}));
-app.use(morgan('tiny'));
+app.use(morgan(':date[iso] :method :url :response-time ms'));
 app.use(send.json());
 
 app.use('/api/equation', function (req, res, next) {
     if (req.method === 'POST') {
+        console.log("body", req);
         if (!req.body.equation) {
-            res.writeHead(400, {"Content-Type": "application/json"});
-            res.write(JSON.stringify({ "error": "Request Body missing the equation." }));
-            res.end();
+            res.statusCode = 400;
+            res.json({
+                error: "Request Body missing the equation."
+            });
             next();
         } else {
             var solution = equationSolver(req.body.equation);
 
             if (solution instanceof Error) {
-                res.writeHead(500, {"Content-Type": "application/json"});
-                res.write(JSON.stringify({ "error": solution.message }));
-                res.end();
+                res.statusCode = 500;
+                res.json({
+                    error: solution.message
+                });
+                next();
+            } else {
+                res.json({
+                    solution: solution
+                });
                 next();
             }
 
-            res.writeHead(200, {"Content-Type": "application/json"});
-            res.write(JSON.stringify({ "solution": solution }));
-            res.end();
-            next();
         }
     }
 
+    next();
 });
 
 // respond to all requests (if end hasn't already been called)

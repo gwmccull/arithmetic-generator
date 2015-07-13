@@ -29,6 +29,7 @@
     "body-parser": "^1.13.2",
     "connect": "^3.4.0",
     "connect-send-json": "^1.0.0",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "request": "^2.58.0"
   }
 }
