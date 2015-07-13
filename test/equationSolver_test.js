@@ -1,3 +1,5 @@
+'use strict';
+
 var should = require('chai').should();
 var expect = require('chai').expect;
 var equationSolver = require('../src/consumer/equation-solver/equationSolver');

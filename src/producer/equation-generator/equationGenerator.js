@@ -1,3 +1,5 @@
+'use strict';
+
 var equationGenerator = function() {
     return equationGenerator.generateEquation(
         equationGenerator.generateValue(),

@@ -1,3 +1,5 @@
+'use strict';
+
 var equationSolver = function(equation) {
     var solution;
 

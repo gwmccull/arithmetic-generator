@@ -1,3 +1,5 @@
+'use strict';
+
 var connect = require('connect');
 var equationGenerator = require('./equation-generator/equationGenerator');
 var request = require('request');

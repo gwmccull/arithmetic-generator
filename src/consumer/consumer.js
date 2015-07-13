@@ -2,6 +2,8 @@ var connect = require('connect');
 var bodyParser = require('body-parser');
 var send = require('connect-send-json');
 var morgan = require('morgan');
+'use strict';
+
 var equationSolver = require('./equation-solver/equationSolver');
 
 var app = connect();
