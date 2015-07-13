@@ -12,13 +12,11 @@ app.use(send.json());
 
 app.use('/api/equation', function (req, res, next) {
     if (req.method === 'POST') {
-        console.log("body", req);
         if (!req.body.equation) {
             res.statusCode = 400;
             res.json({
                 error: "Request Body missing the equation."
             });
-            next();
         } else {
             var solution = equationSolver(req.body.equation);
 
@@ -27,23 +25,30 @@ app.use('/api/equation', function (req, res, next) {
                 res.json({
                     error: solution.message
                 });
-                next();
             } else {
+                res.statusCode = 200;
                 res.json({
                     solution: solution
                 });
-                next();
             }
-
         }
+
+        res.end();
+        return;
     }
 
+    // that method hasn't been implemented.  Try the next route
     next();
 });
 
-// respond to all requests (if end hasn't already been called)
+// response for all requests (if end hasn't already been called)
 app.use(function (req, res) {
-    res.end('Hello from Connect!\n');
+    res.statusCode = 200;
+    res.write('Welcome to the Equation Parser!\n');
+    res.write('The API endpoint is /api/equation\n');
+    res.write('Posting an equation to this endpoint will return the solution.\n');
+    res.write('Example, POST { "equation": "1+2=" } will result in a response of { "solution": 3 }\n');
+    res.end('Thank you!\n');
 });
 
 module.exports = app;

@@ -2,9 +2,11 @@ var http = require('http');
 
 var app = require('./producer');
 
-http.createServer(app).listen(3001, function (err) {
+var port = process.argv[2] || 3001;
+
+http.createServer(app).listen(port, function (err) {
     if (err) {
         return console.log(err);
     }
-    console.log('Server is running at port 3001');
+    console.log('Server is running at port ' + port);
 });
